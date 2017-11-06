@@ -446,7 +446,16 @@ namespace Nite_Opps
             public double Az;
         }
 
-
+        /// <summary>
+        /// Returns a struct with alt & az coordinates of an object given it's Ra & Dec from a specific lat & lon on a specific date (jd) 
+        /// </summary>
+        /// <param name="Lat"></param>
+        /// <param name="Lon"></param>
+        /// <param name="Ra"></param>
+        /// <param name="Dec"></param>
+        /// <param name="Prof"></param>
+        /// <param name="jd"></param>
+        /// <returns></returns>
         public static structAltAz GetAltAz(double Lat, double Lon, double Ra, double Dec, clsSharedData Prof, double jd)
         {
             //Lat = Current Observing Latitude
@@ -456,6 +465,7 @@ namespace Nite_Opps
             //jd = Julian Date
             //GSTime = GMT Sidereal Time
 
+
             structAltAz ret_value = default(structAltAz);
             double ASCOMAlt = 0;
             double ASCOMAz = 0;
@@ -463,11 +473,29 @@ namespace Nite_Opps
             ASCOM.Utilities.Util utl = default(ASCOM.Utilities.Util);
             ASCOM.Astrometry.NOVASCOM.Star Obj = default(ASCOM.Astrometry.NOVASCOM.Star);
             ASCOM.Astrometry.NOVASCOM.PositionVector PosVector = default(ASCOM.Astrometry.NOVASCOM.PositionVector);
+            //ASCOM.Astrometry.SiteInfo Site = default(ASCOM.Astrometry.SiteInfo);
+            //ASCOM.Astrometry.PosVector PVector = default(ASCOM.Astrometry.PosVector);
+            ASCOM.Astrometry.NOVAS.NOVAS31 N = new ASCOM.Astrometry.NOVAS.NOVAS31();
+            ASCOM.Astrometry.SOFA.SOFA S = new ASCOM.Astrometry.SOFA.SOFA();
+            ASCOM.Astrometry.OnSurface onSurface = default(ASCOM.Astrometry.OnSurface);
+            onSurface = new ASCOM.Astrometry.OnSurface();
+            onSurface.Latitude = Lat;
+            onSurface.Longitude = Lon;
+            onSurface.Height = Properties.Settings.Default.site_altitude;
+            onSurface.Pressure = Properties.Settings.Default.site_pressure;
+            onSurface.Pressure = Properties.Settings.Default.site_temperature;
+
+
+
 
             Site = new ASCOM.Astrometry.NOVASCOM.Site();
             utl = new ASCOM.Utilities.Util();
             Obj = new ASCOM.Astrometry.NOVASCOM.Star();
             PosVector = new ASCOM.Astrometry.NOVASCOM.PositionVector();
+            //Site = new ASCOM.Astrometry.SiteInfo();
+            //PVector = new ASCOM.Astrometry.PosVector();
+
+
 
             //double jd = JDNow();
             double GSTime = GMSTime();
