@@ -124,6 +124,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblGuidingStatus = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.lblAZ = new System.Windows.Forms.Label();
+            this.lblALT = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
             this.grpGeneral.SuspendLayout();
             this.groupBox16.SuspendLayout();
             this.GroupBox1.SuspendLayout();
@@ -583,6 +587,10 @@
             // 
             // GroupBox5
             // 
+            this.GroupBox5.Controls.Add(this.lblAZ);
+            this.GroupBox5.Controls.Add(this.lblALT);
+            this.GroupBox5.Controls.Add(this.label28);
+            this.GroupBox5.Controls.Add(this.label29);
             this.GroupBox5.Controls.Add(this.lblAzASCOM);
             this.GroupBox5.Controls.Add(this.lblAltASCOM);
             this.GroupBox5.Controls.Add(this.Label16);
@@ -1119,13 +1127,49 @@
             this.label22.TabIndex = 0;
             this.label22.Text = "Guiding Status:";
             // 
+            // lblAZ
+            // 
+            this.lblAZ.AutoSize = true;
+            this.lblAZ.Location = new System.Drawing.Point(252, 50);
+            this.lblAZ.Name = "lblAZ";
+            this.lblAZ.Size = new System.Drawing.Size(61, 13);
+            this.lblAZ.TabIndex = 113;
+            this.lblAZ.Text = "------------------";
+            // 
+            // lblALT
+            // 
+            this.lblALT.AutoSize = true;
+            this.lblALT.Location = new System.Drawing.Point(252, 24);
+            this.lblALT.Name = "lblALT";
+            this.lblALT.Size = new System.Drawing.Size(61, 13);
+            this.lblALT.TabIndex = 112;
+            this.lblALT.Text = "------------------";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(224, 50);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(21, 13);
+            this.label28.TabIndex = 111;
+            this.label28.Text = "AZ";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(224, 24);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(27, 13);
+            this.label29.TabIndex = 110;
+            this.label29.Text = "ALT";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1410, 814);
+            this.ClientSize = new System.Drawing.Size(1276, 790);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnSyncWithSolve);
             this.Controls.Add(this.groupBox17);
@@ -1261,6 +1305,9 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblGuidingStatus;
         private System.Windows.Forms.Label label22;
-
+        internal System.Windows.Forms.Label lblAZ;
+        internal System.Windows.Forms.Label lblALT;
+        internal System.Windows.Forms.Label label28;
+        internal System.Windows.Forms.Label label29;
     }
 }

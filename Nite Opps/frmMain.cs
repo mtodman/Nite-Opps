@@ -757,16 +757,22 @@ namespace Nite_Opps
             to.targetObjectRA = Util.DMSToDegrees(txtRAhh.Text + ":" + txtRAmm.Text + ":" + txtRAss.Text);
             to.targetObjectDec = Util.DMSToDegrees(txtDecDeg.Text + ":" + txtDecMin.Text + ":" + txtDecSec.Text);
             AstroCalculations.structAltAz AltAz;
+            AstroCalculations.structAltAz AltAz2;
             double siteLat = Util.DMSToDegrees(lblSIteLat.Text);
             double siteLon = Util.DMSToDegrees(lblSiteLong.Text);
             if (Properties.Settings.Default.site_lat_ns == "S") siteLat = -siteLat;
             AltAz = AstroCalculations.GetAltAz(siteLat, siteLon, to.targetObjectRA, to.targetObjectDec, sd, Util.JulianDate);
+            AltAz2 = AstroCalculations.Calculate(to.targetObjectRA, to.targetObjectDec, siteLat, siteLon, DateTime.UtcNow);
             to.targetObjectAlt = AltAz.Alt;
             to.targetObjectAz = AltAz.Az;
             lblRAASCOM.Text = Util.HoursToHMS(to.targetObjectRA);
             lblDECASCOM.Text = Util.HoursToHMS(to.targetObjectDec, "° ", "' ", "\" ");
             lblAltASCOM.Text = Util.HoursToHMS(to.targetObjectAlt, "° ", "' ", "\" ");
             lblAzASCOM.Text = Util.HoursToHMS(to.targetObjectAz, "° ", "' ", "\" ");
+            to.targetObjectAlt = AltAz2.Alt;
+            to.targetObjectAz = AltAz2.Az;
+            lblALT.Text = Util.HoursToHMS(to.targetObjectAlt, "° ", "' ", "\" ");
+            lblAZ.Text = Util.HoursToHMS(to.targetObjectAz, "° ", "' ", "\" ");
         }
 
 
@@ -804,10 +810,12 @@ namespace Nite_Opps
                 //to.targetObjectRA = sd.O.GetObjectRA(txtObject.Text);
                 //to.targetObjectDec = sd.O.GetObjectDEC(txtObject.Text);
                 AstroCalculations.structAltAz AltAz;
+                AstroCalculations.structAltAz AltAz2;
                 double siteLat = Util.DMSToDegrees(lblSIteLat.Text);
                 double siteLon = Util.DMSToDegrees(lblSiteLong.Text);
                 if (Properties.Settings.Default.site_lat_ns == "S") siteLat = -siteLat;
                 AltAz = AstroCalculations.GetAltAz(siteLat, siteLon, to.targetObjectRA, to.targetObjectDec, sd, Util.JulianDate);
+                AltAz2 = AstroCalculations.Calculate(to.targetObjectRA, to.targetObjectDec, siteLat, siteLon, DateTime.UtcNow);
                 to.targetObjectAlt = AltAz.Alt;
                 to.targetObjectAz = AltAz.Az;
 
@@ -824,6 +832,11 @@ namespace Nite_Opps
                 lblDECASCOM.Text = Util.HoursToHMS(to.targetObjectDec, "° ", "' ", "\" ");
                 lblAltASCOM.Text = Util.HoursToHMS(to.targetObjectAlt, "° ", "' ", "\" ");
                 lblAzASCOM.Text = Util.HoursToHMS(to.targetObjectAz, "° ", "' ", "\" ");
+
+                to.targetObjectAlt = AltAz2.Alt;
+                to.targetObjectAz = AltAz2.Az;
+                lblALT.Text = Util.HoursToHMS(to.targetObjectAlt, "° ", "' ", "\" ");
+                lblAZ.Text = Util.HoursToHMS(to.targetObjectAz, "° ", "' ", "\" ");
 
                 updateStatusBox("Co-ordinates successfully obtained \r\n", true);
                 to.targetObjectName = coords;
@@ -843,11 +856,12 @@ namespace Nite_Opps
                 to.targetObjectRA = Util.DMSToDegrees(txtRAhh.Text + " " + txtRAmm.Text + " " + txtRAss.Text);
                 to.targetObjectDec = Util.DMSToDegrees(txtDecDeg.Text + " " + txtDecMin.Text + " " + txtDecSec.Text);
 
-                AstroCalculations.structAltAz AltAz;
+                AstroCalculations.structAltAz AltAz, AltAz2;
                 double siteLat = Util.DMSToDegrees(lblSIteLat.Text);
                 double siteLon = Util.DMSToDegrees(lblSiteLong.Text);
                 if (Properties.Settings.Default.site_lat_ns == "S") siteLat = -siteLat;
                 AltAz = AstroCalculations.GetAltAz(siteLat, siteLon, to.targetObjectRA, to.targetObjectDec, sd, Util.JulianDate);
+                AltAz2 = AstroCalculations.Calculate(to.targetObjectRA, to.targetObjectDec, siteLat, siteLon, DateTime.UtcNow);
                 to.targetObjectAlt = AltAz.Alt;
                 to.targetObjectAz = AltAz.Az;
 
@@ -855,6 +869,11 @@ namespace Nite_Opps
                 lblDECASCOM.Text = Util.HoursToHMS(to.targetObjectDec, "° ", "' ", "\" ");
                 lblAltASCOM.Text = Util.HoursToHMS(to.targetObjectAlt, "° ", "' ", "\" ");
                 lblAzASCOM.Text = Util.HoursToHMS(to.targetObjectAz, "° ", "' ", "\" ");
+
+                to.targetObjectAlt = AltAz2.Alt;
+                to.targetObjectAz = AltAz2.Az;
+                lblALT.Text = Util.HoursToHMS(to.targetObjectAlt, "° ", "' ", "\" ");
+                lblAZ.Text = Util.HoursToHMS(to.targetObjectAz, "° ", "' ", "\" ");
 
                 updateStatusBox("Co-ordinates successfully obtained \r\n", true);
                 to.targetObjectName = coords;

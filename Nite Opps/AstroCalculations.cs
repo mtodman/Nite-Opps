@@ -521,7 +521,44 @@ namespace Nite_Opps
         }
 
 
+        /// <summary>
+        /// </summary>
+        /// <param name="RA">The right ascension in decimal value</param>
+        /// <param name="Dec">The declination in decimal value</param>
+        /// <param name="Lat">The latitude in decimal value</param>
+        /// <param name="Long">The longitude in decimal value</param>
+        /// <param name="Date">The date(time) in UTC</param>
+        /// <returns>The altitude and azimuth in decimal value</returns>
+        public static structAltAz Calculate(double RA, double Dec, double Lat, double Long, DateTime Date)
+        {
 
+            structAltAz ret_value = default(structAltAz);
+
+            // Day offset and Local Siderial Time
+            double dayOffset = (Date - new DateTime(2000, 1, 1, 12, 0, 0, DateTimeKind.Utc)).TotalDays;
+            double LST = (100.46 + 0.985647 * dayOffset + Long + 15 * (Date.Hour + Date.Minute / 60d) + 360) % 360;
+
+            // Hour Angle
+            double HA = (LST - RA + 360) % 360;
+
+            // HA, DEC, Lat to Alt, AZ
+            double x = Math.Cos(HA * (Math.PI / 180)) * Math.Cos(Dec * (Math.PI / 180));
+            double y = Math.Sin(HA * (Math.PI / 180)) * Math.Cos(Dec * (Math.PI / 180));
+            double z = Math.Sin(Dec * (Math.PI / 180));
+
+            double xhor = x * Math.Cos((90 - Lat) * (Math.PI / 180)) - z * Math.Sin((90 - Lat) * (Math.PI / 180));
+            double yhor = y;
+            double zhor = x * Math.Sin((90 - Lat) * (Math.PI / 180)) + z * Math.Cos((90 - Lat) * (Math.PI / 180));
+
+            double az = Math.Atan2(yhor, xhor) * (180 / Math.PI) + 180;
+            double alt = Math.Asin(zhor) * (180 / Math.PI);
+
+            ret_value.Alt = alt;
+            ret_value.Az = az;
+
+            return ret_value;
+            
+        }
 
     }
 }
