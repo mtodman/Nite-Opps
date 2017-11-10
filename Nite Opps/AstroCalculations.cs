@@ -520,6 +520,23 @@ namespace Nite_Opps
 
         }
 
+        public static structAltAz GetAltAz(double ra, double dec, double lat, double lon)
+        {
+            structAltAz ret_value = default(structAltAz);
+            double ASCOMAlt = 0;
+            double ASCOMAz = 0;
+
+            ASCOM.Astrometry.SkyPos skyPos = new ASCOM.Astrometry.SkyPos();
+            skyPos.RA = ra;
+            skyPos.Dec = dec;
+            
+
+
+            ret_value.Alt = ASCOMAlt;
+            ret_value.Az = ASCOMAz;
+            return ret_value);
+        }
+
 
         /// <summary>
         /// </summary>
