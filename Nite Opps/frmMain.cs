@@ -763,6 +763,7 @@ namespace Nite_Opps
             if (Properties.Settings.Default.site_lat_ns == "S") siteLat = -siteLat;
             AltAz = AstroCalculations.GetAltAz(siteLat, siteLon, to.targetObjectRA, to.targetObjectDec, sd, Util.JulianDate);
             AltAz2 = AstroCalculations.Calculate(to.targetObjectRA, to.targetObjectDec, siteLat, siteLon, DateTime.UtcNow);
+            //AltAz2 = AstroCalculations.GetAltAz(to.targetObjectRA, to.targetObjectDec, siteLat, siteLon, Util.JulianDate);
             to.targetObjectAlt = AltAz.Alt;
             to.targetObjectAz = AltAz.Az;
             lblRAASCOM.Text = Util.HoursToHMS(to.targetObjectRA);
@@ -815,7 +816,8 @@ namespace Nite_Opps
                 double siteLon = Util.DMSToDegrees(lblSiteLong.Text);
                 if (Properties.Settings.Default.site_lat_ns == "S") siteLat = -siteLat;
                 AltAz = AstroCalculations.GetAltAz(siteLat, siteLon, to.targetObjectRA, to.targetObjectDec, sd, Util.JulianDate);
-                AltAz2 = AstroCalculations.Calculate(to.targetObjectRA, to.targetObjectDec, siteLat, siteLon, DateTime.UtcNow);
+                //AltAz2 = AstroCalculations.Calculate(to.targetObjectRA, to.targetObjectDec, siteLat, siteLon, DateTime.UtcNow);
+                AltAz2 = AstroCalculations.GetAltAz(to.targetObjectRA, to.targetObjectDec, siteLat, siteLon, Util.JulianDate);
                 to.targetObjectAlt = AltAz.Alt;
                 to.targetObjectAz = AltAz.Az;
 

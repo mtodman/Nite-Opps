@@ -519,21 +519,41 @@ namespace Nite_Opps
             return ret_value;
 
         }
-
-        public static structAltAz GetAltAz(double ra, double dec, double lat, double lon)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ra"></param>
+        /// <param name="dec"></param>
+        /// <param name="lat"></param>
+        /// <param name="lon"></param>
+        /// <param name="jd"></param>
+        /// <returns></returns>
+        public static structAltAz GetAltAz(double ra, double dec, double lat, double lon, double jd)
         {
-            structAltAz ret_value = default(structAltAz);
-            double ASCOMAlt = 0;
-            double ASCOMAz = 0;
+            ASCOM.Astrometry.OnSurface OS = new ASCOM.Astrometry.OnSurface();
+            OS.Latitude = lat;
+            OS.Longitude = lon;
+            OS.Height = Properties.Settings.Default.site_altitude;
+            OS.Temperature = Properties.Settings.Default.site_temperature;
+            OS.Temperature = Properties.Settings.Default.site_pressure;
 
-            ASCOM.Astrometry.SkyPos skyPos = new ASCOM.Astrometry.SkyPos();
-            skyPos.RA = ra;
-            skyPos.Dec = dec;
+            ASCOM.Utilities.Util UT = new ASCOM.Utilities.Util();
+            double JDate = UT.DateLocalToJulian(DateTime.Now);
+
             
 
+            double Zd = 0.0;
+            double Az = 0.0;
+            double RaR = 0.0;
+            double DecR = 0.0;
 
-            ret_value.Alt = ASCOMAlt;
-            ret_value.Az = ASCOMAz;
+            ASCOM.Astrometry.NOVAS.NOVAS31 N = new ASCOM.Astrometry.NOVAS.NOVAS31();
+            N.Equ2Hor(JDate, 0, ASCOM.Astrometry.Accuracy.Reduced, 0, 0, OS, ra, dec, ASCOM.Astrometry.RefractionOption.LocationRefraction, ref Zd, ref Az, ref RaR, ref DecR);
+            //N.Equ2Hor(jd, 0, ASCOM.Astrometry.Accuracy.Reduced, 0, 0, OS, ra, dec, ASCOM.Astrometry.RefractionOption.LocationRefraction, ref Zd, ref Az, ref RaR, ref DecR);
+            structAltAz ret_value = default(structAltAz);
+
+            ret_value.Alt = 90.0-Zd;
+            ret_value.Az = Az;
             return ret_value;
         }
 
@@ -548,6 +568,8 @@ namespace Nite_Opps
         /// <returns>The altitude and azimuth in decimal value</returns>
         public static structAltAz Calculate(double RA, double Dec, double Lat, double Long, DateTime Date)
         {
+
+            
 
             structAltAz ret_value = default(structAltAz);
 
