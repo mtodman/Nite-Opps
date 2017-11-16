@@ -264,6 +264,39 @@
   <ItemGroup>
     <None Include="bin\Debug\data\arrayfile.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrayfile.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Messier_Database1-110.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IC_Database1-1529.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NGC_Database1-999.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NGC_Database1000-1999.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NGC_Database2000-2999.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NGC_Database3000-3999.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NGC_Database4000-4999.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NGC_Database5000-5999.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NGC_Database6000-6999.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NGC_Database7000-7840.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

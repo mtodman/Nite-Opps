@@ -1,0 +1,15 @@
+Slew to Object,ngc2070,,,,
+Bias Frame,,,1,,10
+Pause,,,,3,
+Light Frame,,Lum,1,5,5
+Pause,,,,3,
+Light Frame,,Red,1,10,5
+Empty,,,,,
+Empty,,,,,
+Empty,,,,,
+Empty,,,,,
+Empty,,,,,
+Empty,,,,,
+Empty,,,,,
+Empty,,,,,
+Empty,,,,,

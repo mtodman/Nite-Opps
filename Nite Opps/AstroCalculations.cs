@@ -534,7 +534,7 @@ namespace Nite_Opps
 
             ret_value.Alt = ASCOMAlt;
             ret_value.Az = ASCOMAz;
-            return ret_value);
+            return ret_value;
         }
 
 

@@ -119,36 +119,36 @@
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="arrayfile" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\arrayfile.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\arrayfile.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="IC_Database1_1529" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\IC_Database1-1529.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\IC_Database1-1529.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="Messier_Database1_110" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\Messier_Database1-110.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\Messier_Database1-110.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="NGC_Database1000_1999" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\NGC_Database1000-1999.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\NGC_Database1000-1999.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="NGC_Database1_999" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\NGC_Database1-999.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\NGC_Database1-999.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="NGC_Database2000_2999" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\NGC_Database2000-2999.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\NGC_Database2000-2999.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="NGC_Database3000_3999" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\NGC_Database3000-3999.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\NGC_Database3000-3999.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="NGC_Database4000_4999" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\NGC_Database4000-4999.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\NGC_Database4000-4999.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="NGC_Database5000_5999" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\NGC_Database5000-5999.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\NGC_Database5000-5999.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="NGC_Database6000_6999" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\NGC_Database6000-6999.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\NGC_Database6000-6999.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="NGC_Database7000_7840" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\NGC_Database7000-7840.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\NGC_Database7000-7840.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
 </root>
