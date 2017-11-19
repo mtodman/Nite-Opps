@@ -903,6 +903,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(834, 692);
+            this.ControlBox = false;
             this.Controls.Add(this.btnSaveConfig);
             this.Controls.Add(this.chkFormOnTop);
             this.Controls.Add(this.GroupBox7);

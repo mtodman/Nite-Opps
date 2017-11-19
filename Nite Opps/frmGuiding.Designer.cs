@@ -47,6 +47,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(292, 266);
+            this.ControlBox = false;
             this.Controls.Add(this.label1);
             this.Name = "frmGuiding";
             this.Text = "frmGuiding";

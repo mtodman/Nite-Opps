@@ -73,6 +73,10 @@
             this.txtObject = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.GroupBox5 = new System.Windows.Forms.GroupBox();
+            this.lblAZ = new System.Windows.Forms.Label();
+            this.lblALT = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
             this.lblAzASCOM = new System.Windows.Forms.Label();
             this.lblAltASCOM = new System.Windows.Forms.Label();
             this.Label16 = new System.Windows.Forms.Label();
@@ -124,16 +128,13 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblGuidingStatus = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.lblAZ = new System.Windows.Forms.Label();
-            this.lblALT = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
             this.grpGeneral.SuspendLayout();
             this.groupBox16.SuspendLayout();
             this.GroupBox1.SuspendLayout();
             this.GroupBox5.SuspendLayout();
             this.GroupBox3.SuspendLayout();
             this.GroupBox4.SuspendLayout();
+            this.groupBox17.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -607,6 +608,42 @@
             this.GroupBox5.TabStop = false;
             this.GroupBox5.Text = "Target Object Co-ordinates";
             // 
+            // lblAZ
+            // 
+            this.lblAZ.AutoSize = true;
+            this.lblAZ.Location = new System.Drawing.Point(252, 50);
+            this.lblAZ.Name = "lblAZ";
+            this.lblAZ.Size = new System.Drawing.Size(61, 13);
+            this.lblAZ.TabIndex = 113;
+            this.lblAZ.Text = "------------------";
+            // 
+            // lblALT
+            // 
+            this.lblALT.AutoSize = true;
+            this.lblALT.Location = new System.Drawing.Point(252, 24);
+            this.lblALT.Name = "lblALT";
+            this.lblALT.Size = new System.Drawing.Size(61, 13);
+            this.lblALT.TabIndex = 112;
+            this.lblALT.Text = "------------------";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(224, 50);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(21, 13);
+            this.label28.TabIndex = 111;
+            this.label28.Text = "AZ";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(224, 24);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(27, 13);
+            this.label29.TabIndex = 110;
+            this.label29.Text = "ALT";
+            // 
             // lblAzASCOM
             // 
             this.lblAzASCOM.AutoSize = true;
@@ -793,6 +830,7 @@
             // 
             this.GroupBox4.Controls.Add(this.chkDome);
             this.GroupBox4.Controls.Add(this.btnDome);
+            this.GroupBox4.Controls.Add(this.btnExit);
             this.GroupBox4.Controls.Add(this.chkPHD);
             this.GroupBox4.Controls.Add(this.btnPHD);
             this.GroupBox4.Controls.Add(this.chkFocuser);
@@ -816,7 +854,7 @@
             this.GroupBox4.Size = new System.Drawing.Size(466, 263);
             this.GroupBox4.TabIndex = 126;
             this.GroupBox4.TabStop = false;
-            this.GroupBox4.Text = "Linked Application Status";
+            this.GroupBox4.Text = "Linked Object Status";
             // 
             // chkDome
             // 
@@ -1027,7 +1065,7 @@
             // 
             // btnStartImagingRun
             // 
-            this.btnStartImagingRun.Location = new System.Drawing.Point(1320, 18);
+            this.btnStartImagingRun.Location = new System.Drawing.Point(25, 30);
             this.btnStartImagingRun.Name = "btnStartImagingRun";
             this.btnStartImagingRun.Size = new System.Drawing.Size(75, 55);
             this.btnStartImagingRun.TabIndex = 147;
@@ -1037,7 +1075,7 @@
             // 
             // btnSolve
             // 
-            this.btnSolve.Location = new System.Drawing.Point(1320, 187);
+            this.btnSolve.Location = new System.Drawing.Point(132, 31);
             this.btnSolve.Name = "btnSolve";
             this.btnSolve.Size = new System.Drawing.Size(75, 42);
             this.btnSolve.TabIndex = 146;
@@ -1047,7 +1085,7 @@
             // 
             // btnStopImagingRun
             // 
-            this.btnStopImagingRun.Location = new System.Drawing.Point(1320, 79);
+            this.btnStopImagingRun.Location = new System.Drawing.Point(25, 91);
             this.btnStopImagingRun.Name = "btnStopImagingRun";
             this.btnStopImagingRun.Size = new System.Drawing.Size(75, 54);
             this.btnStopImagingRun.TabIndex = 145;
@@ -1056,7 +1094,7 @@
             // 
             // btnSlewAndSolve
             // 
-            this.btnSlewAndSolve.Location = new System.Drawing.Point(1320, 139);
+            this.btnSlewAndSolve.Location = new System.Drawing.Point(25, 151);
             this.btnSlewAndSolve.Name = "btnSlewAndSolve";
             this.btnSlewAndSolve.Size = new System.Drawing.Size(75, 42);
             this.btnSlewAndSolve.TabIndex = 144;
@@ -1066,7 +1104,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(1320, 301);
+            this.btnExit.Location = new System.Drawing.Point(310, 234);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 148;
@@ -1076,12 +1114,17 @@
             // 
             // groupBox17
             // 
+            this.groupBox17.Controls.Add(this.btnSlewAndSolve);
+            this.groupBox17.Controls.Add(this.btnSyncWithSolve);
+            this.groupBox17.Controls.Add(this.btnStopImagingRun);
+            this.groupBox17.Controls.Add(this.btnStartImagingRun);
+            this.groupBox17.Controls.Add(this.btnSolve);
             this.groupBox17.Location = new System.Drawing.Point(817, 348);
             this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(578, 263);
+            this.groupBox17.Size = new System.Drawing.Size(473, 263);
             this.groupBox17.TabIndex = 149;
             this.groupBox17.TabStop = false;
-            this.groupBox17.Text = "Observatory Control";
+            this.groupBox17.Text = "Imaging Control";
             // 
             // timer1
             // 
@@ -1090,7 +1133,7 @@
             // 
             // btnSyncWithSolve
             // 
-            this.btnSyncWithSolve.Location = new System.Drawing.Point(1320, 235);
+            this.btnSyncWithSolve.Location = new System.Drawing.Point(132, 79);
             this.btnSyncWithSolve.Name = "btnSyncWithSolve";
             this.btnSyncWithSolve.Size = new System.Drawing.Size(75, 58);
             this.btnSyncWithSolve.TabIndex = 150;
@@ -1127,57 +1170,16 @@
             this.label22.TabIndex = 0;
             this.label22.Text = "Guiding Status:";
             // 
-            // lblAZ
-            // 
-            this.lblAZ.AutoSize = true;
-            this.lblAZ.Location = new System.Drawing.Point(252, 50);
-            this.lblAZ.Name = "lblAZ";
-            this.lblAZ.Size = new System.Drawing.Size(61, 13);
-            this.lblAZ.TabIndex = 113;
-            this.lblAZ.Text = "------------------";
-            // 
-            // lblALT
-            // 
-            this.lblALT.AutoSize = true;
-            this.lblALT.Location = new System.Drawing.Point(252, 24);
-            this.lblALT.Name = "lblALT";
-            this.lblALT.Size = new System.Drawing.Size(61, 13);
-            this.lblALT.TabIndex = 112;
-            this.lblALT.Text = "------------------";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(224, 50);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(21, 13);
-            this.label28.TabIndex = 111;
-            this.label28.Text = "AZ";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(224, 24);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(27, 13);
-            this.label29.TabIndex = 110;
-            this.label29.Text = "ALT";
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1276, 790);
+            this.ClientSize = new System.Drawing.Size(1297, 624);
+            this.ControlBox = false;
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.btnSyncWithSolve);
             this.Controls.Add(this.groupBox17);
-            this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnStartImagingRun);
-            this.Controls.Add(this.btnSolve);
-            this.Controls.Add(this.btnStopImagingRun);
-            this.Controls.Add(this.btnSlewAndSolve);
             this.Controls.Add(this.GroupBox4);
             this.Controls.Add(this.txtStatusBox);
             this.Controls.Add(this.GroupBox3);
@@ -1201,6 +1203,7 @@
             this.GroupBox3.PerformLayout();
             this.GroupBox4.ResumeLayout(false);
             this.GroupBox4.PerformLayout();
+            this.groupBox17.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);

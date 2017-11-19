@@ -479,7 +479,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1566, 814);
+            this.ClientSize = new System.Drawing.Size(1436, 814);
+            this.ControlBox = false;
             this.Controls.Add(this.btnSaveAs);
             this.Controls.Add(this.groupBox19);
             this.Controls.Add(this.pnlImage);

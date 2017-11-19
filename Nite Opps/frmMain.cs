@@ -577,11 +577,14 @@ namespace Nite_Opps
         {
             if (InvokeRequired)
             {
-                this.Invoke(new Action<string, bool>(updateStatusBox), new object[] { message, displayTimeStamp });
+                //this.Invoke(new Action<string, bool>(updateStatusBox), new object[] { message, displayTimeStamp });
+                Invoke(new Action<string, bool>(updateStatusBox), new object[] { message, displayTimeStamp });
                 return;
             }
 
             if (displayTimeStamp) this.txtStatusBox.Text += DateTime.Now.ToLongTimeString() + ": ";
+            //if (displayTimeStamp) txtStatusBox.Text += DateTime.Now.ToLongTimeString() + ": ";
+
 
             this.txtStatusBox.Text += message;
 
@@ -762,8 +765,8 @@ namespace Nite_Opps
             double siteLon = Util.DMSToDegrees(lblSiteLong.Text);
             if (Properties.Settings.Default.site_lat_ns == "S") siteLat = -siteLat;
             AltAz = AstroCalculations.GetAltAz(siteLat, siteLon, to.targetObjectRA, to.targetObjectDec, sd, Util.JulianDate);
-            AltAz2 = AstroCalculations.Calculate(to.targetObjectRA, to.targetObjectDec, siteLat, siteLon, DateTime.UtcNow);
-            //AltAz2 = AstroCalculations.GetAltAz(to.targetObjectRA, to.targetObjectDec, siteLat, siteLon, Util.JulianDate);
+            //AltAz2 = AstroCalculations.Calculate(to.targetObjectRA, to.targetObjectDec, siteLat, siteLon, DateTime.UtcNow);
+            AltAz2 = AstroCalculations.GetAltAz(to.targetObjectRA, to.targetObjectDec, siteLat, siteLon, Util.JulianDate);
             to.targetObjectAlt = AltAz.Alt;
             to.targetObjectAz = AltAz.Az;
             lblRAASCOM.Text = Util.HoursToHMS(to.targetObjectRA);
@@ -1008,8 +1011,8 @@ namespace Nite_Opps
 
             slewAndSolveDelegate sas1 = t_slew;
             IAsyncResult ar = sas1.BeginInvoke(imageRunCount, null, null);
-            while (!ar.IsCompleted)
-            { System.Threading.Thread.Sleep(1000); }
+            //while (!ar.IsCompleted)
+            //{ System.Threading.Thread.Sleep(1000); }
 
         }
 

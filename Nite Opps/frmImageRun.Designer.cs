@@ -1159,6 +1159,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(978, 618);
+            this.ControlBox = false;
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.groupBox13);
             this.Controls.Add(this.btnLoadFromFile);
