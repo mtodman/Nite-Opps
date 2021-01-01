@@ -142,24 +142,9 @@ namespace Nite_Opps
                             sd.O = null;
                             break;
                         case false:
-                            sd.O = new objectDb("Generic");
+                            sd.O = new objectDb();
                             sd.isObjectDbConnected = true;
                             updateStatusBox("Generic Object Db is connected\r\n", true);
-
-                            break;
-                    }
-                    break;
-                case "MiniSAC":
-                    switch (sd.isObjectDbConnected)
-                    {
-                        case true:
-                            disconnectObjectDb();
-                            sd.O = null;
-                            break;
-                        case false:
-                            sd.O = new objectDb("MiniSAC");
-                            sd.isObjectDbConnected = true;
-                            updateStatusBox("MiniSAC Object Db is connected\r\n", true);
 
                             break;
                     }
@@ -798,18 +783,8 @@ namespace Nite_Opps
 
                 updateStatusBox("Getting Co-ordinates \r\n", true);
 
-                if(Properties.Settings.Default.object_database == "MiniSAC")
-                {
-                    clsStatics.coordinates c;
-                    c = sd.O.getMiniSACCoords(txtObject.Text);
-                    to.targetObjectRA = c.ra;
-                    to.targetObjectDec = c.dec;
-                }
-                else
-                {
                     to.targetObjectRA = sd.O.GetObjectRA(txtObject.Text);
                     to.targetObjectDec = sd.O.GetObjectDEC(txtObject.Text);
-                }
 
                 //to.targetObjectRA = sd.O.GetObjectRA(txtObject.Text);
                 //to.targetObjectDec = sd.O.GetObjectDEC(txtObject.Text);

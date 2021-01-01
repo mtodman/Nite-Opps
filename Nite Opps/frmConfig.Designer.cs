@@ -724,6 +724,7 @@
             // rbUseMiniSAC
             // 
             this.rbUseMiniSAC.AutoSize = true;
+            this.rbUseMiniSAC.Enabled = false;
             this.rbUseMiniSAC.Location = new System.Drawing.Point(6, 42);
             this.rbUseMiniSAC.Name = "rbUseMiniSAC";
             this.rbUseMiniSAC.Size = new System.Drawing.Size(104, 17);

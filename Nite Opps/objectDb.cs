@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
-using MiniSAC;
 using System.Reflection;
 
 
@@ -27,23 +26,7 @@ namespace Nite_Opps
             read_files();
         }
 
-        public objectDb(string engine)
-        {
-            _engine = engine;
-            if (_engine == "Generic")
-            {
-                read_files();
-            }
-            else
-            {
-                if (!clsStatics.MiniSAC_OPENED)
-                {
-                    clsStatics.cat = new Catalog();
-                    clsStatics.MiniSAC_OPENED = true;
-                }
-                
-            }
-        }
+       
 
         /// <summary>
         /// Reads all generic db files and loads the data into a 3 dimensional array (object_file_array).
@@ -127,19 +110,6 @@ namespace Nite_Opps
         public double GetObjectRA(string Obj)
         {
             double ra = 0;
-            if (_engine == "MiniSAC")
-            {
-                // Note Obj must have a space between the identifier and the number (NGC2070 - bad, NGC 2070 - good)
-                Catalog cat = new Catalog();
-                if (cat.SelectObject(Obj))
-                {
-                    ra = Convert.ToDouble(cat.RightAscension);
-                    cat = null;
-                }
-                else ra = 0.0;
-            }
-            else
-            {
                 //double functionReturnValue = 0;
                 int column = 0;
                 int DB_Ref = 0;
@@ -201,7 +171,6 @@ namespace Nite_Opps
                     ra = 0;
                 }
                 return ra;
-            }
             return ra;
         }
 
@@ -209,24 +178,6 @@ namespace Nite_Opps
 
         public double GetObjectDEC(string Obj)
         {
-            if(_engine == "MiniSAC")
-            {
-                // Note Obj must have a space between the identifier and the number (NGC2070 - bad, NGC 2070 - good)
-                Catalog cat2 = new Catalog();
-                if (cat2.SelectObject(Obj))
-                {
-                    double dec = Convert.ToDouble(cat2.Declination);
-                    cat2 = null;
-                    return dec;
-                }
-                else
-                {
-                    cat2 = null;
-                    return 0.0;
-                }
-            }
-            else
-            {
                 double functionReturnValue = 0;
                 int column = 0;
                 int DB_Ref = 0;
@@ -287,7 +238,6 @@ namespace Nite_Opps
                     return 0;
                 }
                 return 0;
-            }
             
         }
 
@@ -304,38 +254,11 @@ namespace Nite_Opps
                             return true;
                         } else return false;
                         break;
-                    case "MiniSAC":
-                        Catalog cat = new Catalog();
-                        return cat.SelectObject("M1");
-                        break;
                 }
                 return false;
             }
         }
 
-        /// <summary>
-        /// Returns a type struct which contains the ra & dec values.
-        /// Note Obj must have a space between the identifier and the number (NGC2070 - bad, NGC 2070 - good).
-        /// Need to implement code that checks for this space and inserts it if it doesn't exist.
-        /// </summary>
-        /// <param name="Obj"></param>
-        /// <returns></returns>
-        public clsStatics.coordinates getMiniSACCoords(string Obj)
-        {
-            clsStatics.coordinates c;
-            if (clsStatics.cat.SelectObject(Obj))
-                {
-                    c.ra = Convert.ToDouble(clsStatics.cat.RightAscension);
-                    c.dec = Convert.ToDouble(clsStatics.cat.Declination);
-                    return c;
-                }
-                else
-                {
-                    c.ra = 0.0;
-                    c.dec = 0.0;
-                    return c;
-                }
-        }
 
     }
 }

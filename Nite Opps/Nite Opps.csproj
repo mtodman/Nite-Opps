@@ -120,6 +120,7 @@
     <Compile Include="imageInfo.cs" />
     <Compile Include="IntArrayToBitmap.cs" />
     <Compile Include="objectDb.cs" />
+    <Compile Include="obj_db.cs" />
     <Compile Include="ParentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -296,6 +297,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\NGC_Database7000-7840.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\SAC_DeepSky_Ver81_QCQ.TXT" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

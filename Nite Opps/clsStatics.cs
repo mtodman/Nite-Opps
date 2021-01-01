@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using MiniSAC;
 
 namespace Nite_Opps
 {
@@ -49,7 +48,7 @@ namespace Nite_Opps
         // properly when disconnecting from and reconnecting to the objectDb.
         // Therefore, by keeping it static, the cat object doesn't nullify when disconnecting the 
         // MiniSAC objectdb.
-        public static Catalog cat;
+        //public static Catalog cat;
         public static bool MiniSAC_OPENED = false;
 
         public enum eAlarmTypes
