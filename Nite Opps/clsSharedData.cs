@@ -74,6 +74,8 @@ namespace Nite_Opps
             frmImaging i = new frmImaging();
 
             ImagingCam.BinX = ImagingCam.BinY = (short)imagingCamBinning;
+            ImagingCam.NumX = ImagingCam.CameraXSize;
+            ImagingCam.NumY = ImagingCam.CameraYSize;
             if (imagingCamCoolerOn)
             {
                 ImagingCam.CoolerOn = true;

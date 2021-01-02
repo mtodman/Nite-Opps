@@ -72,8 +72,15 @@ namespace Nite_Opps
 
             if (!sharedData.ImagingCam.ImageReady) System.Threading.Thread.Sleep(500);
             System.Threading.Thread.Sleep(500);
-
-            sharedData.theImage.LastExposureDuration = sharedData.ImagingCam.LastExposureDuration;
+            try
+            {
+                sharedData.theImage.LastExposureDuration = sharedData.ImagingCam.LastExposureDuration;
+            }
+            catch
+            {
+                //Used to handle exception raised if there is no LastExposureDuration (ie, this is the first image)
+            }
+            
             sharedData.theImage.LastExposureStartTime = sharedData.ImagingCam.LastExposureStartTime;
             form.ImagingForm.pictureBox1.Size = new System.Drawing.Size(sharedData.ImagingCam.ExposureWidth, sharedData.ImagingCam.ExposureHeight);
 
@@ -190,9 +197,12 @@ namespace Nite_Opps
             sd.theImage.StartY = sd.ImagingCam.StartY;
             sd.theImage.Min = sd.ImagingCam.Min;
             sd.theImage.Max = sd.ImagingCam.Max;
-            sd.theImage.CCDTemperature = sd.ImagingCam.CCDTemperature;
-            sd.theImage.CanSetCCDTemperature = sd.ImagingCam.CanSetCCDTemperature;
-            sd.theImage.SetCCDTemperature = sd.ImagingCam.SetCCDTemperature;
+            if (sd.ImagingCam.CanSetCCDTemperature)
+            {
+                sd.theImage.CCDTemperature = sd.ImagingCam.CCDTemperature;
+                sd.theImage.CanSetCCDTemperature = sd.ImagingCam.CanSetCCDTemperature;
+                sd.theImage.SetCCDTemperature = sd.ImagingCam.SetCCDTemperature;
+            }
             sd.theImage.objectName = to.targetObjectName;
 
         }
@@ -335,7 +345,7 @@ namespace Nite_Opps
                                     ? string.Format("Inner {0}", ex.InnerException.Message)
                                     : string.Format("Error {0}", ex.Message));
             }
-
+              
 
         }
 
@@ -344,9 +354,12 @@ namespace Nite_Opps
             if (sd.isImagingCamConnected)
             {
                 lblCameraStatus.Text = sd.ImagingCam.CameraState.ToString();
-                lblCameraTemp.Text = sd.ImagingCam.CCDTemperature.ToString("F2") + "°C";
-                lblCoolerPower.Text = sd.ImagingCam.CoolerPower.ToString("F2") + "%";
-                if (imagingCamCoolerOn) sd.ImagingCam.SetCCDTemperature = (int)numTargetTemp.Value;
+                if (sd.ImagingCam.CanSetCCDTemperature)
+                {
+                    lblCameraTemp.Text = sd.ImagingCam.CCDTemperature.ToString("F2") + "°C"; //Add support for cameras that don't have cooling
+                    lblCoolerPower.Text = sd.ImagingCam.CoolerPower.ToString("F2") + "%";
+                    if (imagingCamCoolerOn) sd.ImagingCam.SetCCDTemperature = (int)numTargetTemp.Value;
+                }
             }
             else
             {
