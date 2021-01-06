@@ -373,7 +373,7 @@ namespace Nite_Opps
             updateButtons();
         }
 
-        void phdConnectDisconnect()
+        async void phdConnectDisconnect()
         {
             switch (sd.isPHDConnected)
             {
@@ -381,6 +381,12 @@ namespace Nite_Opps
                     disconnectPHD();
                     break;
                 case false:
+                    sd.G2 = new phd2();
+                    bool started = await sd.G2.StartPHD2Process();
+                    sd.G2.Connect();
+                    string profile = "Simulator";
+                    sd.G2.ConnectEquipment(profile);
+
                     sd.G = new clsPhd(ref sd, this);
                     sd.G.Log += new clsPhd.LogHandler(updateStatusBox);
                     sd.G.evPHDAlarm += new clsPhd.PHDAlarmHandler(alarmReceived);
@@ -1394,6 +1400,25 @@ namespace Nite_Opps
                 F = null;
             }
             (new System.Threading.Thread(delegate() { SetTextUIThreadPatternParams("Finished " + ss.task + " task from task list\r\n", true); })).Start();
+        }
+
+        private async void btnGuide_Click(object sender, EventArgs e)
+        {
+            //bool started = await sd.G2.StartPHD2Process();
+            if(!sd.G2.IsGuiding())
+            {
+                double settlePixels = 2.0;
+                double settleTime = 10.0;
+                double settleTimeout = 100.0;
+                sd.G2.Guide(settlePixels, settleTime, settleTimeout, true);
+                btnGuide.Text = "Stop Guiding";
+            }
+            else
+            {
+                sd.G2.StopCapture(10);
+                btnGuide.Text = "Start Guiding";
+            }
+            
         }
 
         void t_slewAndSolve(slewAndSolveInfo _ss)

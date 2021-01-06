@@ -48,6 +48,7 @@ namespace Nite_Opps
         public fitsHeader F;
         //public phd G;
         public clsPhd G;
+        public phd2 G2;
         public Array imgArray;
 
 

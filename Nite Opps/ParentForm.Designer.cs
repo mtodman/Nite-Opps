@@ -76,7 +76,7 @@
             this.ImagingPage.Location = new System.Drawing.Point(4, 22);
             this.ImagingPage.Name = "ImagingPage";
             this.ImagingPage.Padding = new System.Windows.Forms.Padding(3);
-            this.ImagingPage.Size = new System.Drawing.Size(1260, 0);
+            this.ImagingPage.Size = new System.Drawing.Size(1306, 0);
             this.ImagingPage.TabIndex = 1;
             this.ImagingPage.Text = "Imaging";
             this.ImagingPage.UseVisualStyleBackColor = true;
@@ -85,7 +85,7 @@
             // 
             this.GuidingPage.Location = new System.Drawing.Point(4, 22);
             this.GuidingPage.Name = "GuidingPage";
-            this.GuidingPage.Size = new System.Drawing.Size(1260, 0);
+            this.GuidingPage.Size = new System.Drawing.Size(1306, 0);
             this.GuidingPage.TabIndex = 2;
             this.GuidingPage.Text = "Guiding";
             this.GuidingPage.UseVisualStyleBackColor = true;
@@ -94,7 +94,7 @@
             // 
             this.ConfigPage.Location = new System.Drawing.Point(4, 22);
             this.ConfigPage.Name = "ConfigPage";
-            this.ConfigPage.Size = new System.Drawing.Size(1260, 0);
+            this.ConfigPage.Size = new System.Drawing.Size(1306, 0);
             this.ConfigPage.TabIndex = 3;
             this.ConfigPage.Text = "Configuration";
             this.ConfigPage.UseVisualStyleBackColor = true;
@@ -103,7 +103,7 @@
             // 
             this.ImageRunPage.Location = new System.Drawing.Point(4, 22);
             this.ImageRunPage.Name = "ImageRunPage";
-            this.ImageRunPage.Size = new System.Drawing.Size(1260, 0);
+            this.ImageRunPage.Size = new System.Drawing.Size(1306, 0);
             this.ImageRunPage.TabIndex = 4;
             this.ImageRunPage.Text = "Image Run";
             this.ImageRunPage.UseVisualStyleBackColor = true;
@@ -113,12 +113,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1314, 671);
+            this.ClientSize = new System.Drawing.Size(1314, 771);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ParentForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nite Opps";
             this.Load += new System.EventHandler(this.ParentForm_Load);
             this.tabControl1.ResumeLayout(false);

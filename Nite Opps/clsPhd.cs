@@ -7,9 +7,193 @@ using System.Net.Sockets;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
+using guider;
+using Newtonsoft.Json.Linq;
+using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Nite_Opps
 {
+    public class phd2 : Guider
+    {
+        Guider guider;
+        public phd2()
+        {
+            guider = Guider.Factory("localhost");
+            //guider.Connect();
+        }
+
+        public async Task<bool> StartPHD2Process()
+        {
+            // if phd2 is not running start it
+            try
+            {
+                if (Process.GetProcessesByName("phd2").Length == 0)
+                {
+                    var defaultPHD2Path = Environment.ExpandEnvironmentVariables(@"%programfiles(x86)%\PHDGuiding2\phd2.exe");
+                    if (!File.Exists(defaultPHD2Path))
+                    {
+                        throw new FileNotFoundException();
+                    }
+
+                    var process = Process.Start(defaultPHD2Path);
+                    process?.WaitForInputIdle();
+
+                    await Task.Delay(1500);
+
+                    return true;
+                }
+            }
+            catch (FileNotFoundException ex)
+            {
+                
+            }
+            catch (Exception ex)
+            {
+                
+            }
+
+            return false;
+        }
+        public override void Dispose()
+        {
+            throw new NotSupportedException(
+                "The Dispose() method was called on a class which does not support that method.");
+        }
+
+        public override bool IsGuiding()
+        {
+            return guider.IsGuiding();
+           // throw new NotSupportedException(
+           //     "The IsGuiding() method was called on a class which does not support that method.");
+        }
+
+        public override void Close()
+        {
+            throw new NotSupportedException(
+                "The Close() method was called on a class which does not support that method.");
+        }
+
+        public override void Unpause()
+        {
+            throw new NotSupportedException(
+                "The Unpause() method was called on a class which does not support that method.");
+        }
+
+        public override JObject Call(string method, JToken param)
+        {
+            throw new NotSupportedException(
+                "The Call() method was called on a class which does not support that method.");
+        }
+
+        public override JObject Call(string method)
+        {
+            throw new NotSupportedException(
+                "The Call() method was called on a class which does not support that method.");
+        }
+
+        public override List<string> GetEquipmentProfiles()
+        {
+            throw new NotSupportedException(
+                "The GetEquipmentProfiles() method was called on a class which does not support that method.");
+        }
+
+        public override void StopCapture(uint timeoutSeconds)
+        {
+            guider.StopCapture(timeoutSeconds);
+           // throw new NotSupportedException(
+            //    "The StopCapture() method was called on a class which does not support that method.");
+        }
+
+        public override SettleProgress CheckSettling()
+        {
+            throw new NotSupportedException(
+                "The CheckSettling() method was called on a class which does not support that method.");
+        }
+
+        public override void Dither(double ditherPixels, double settlePixels, double settleTime, double settleTimeout)
+        {
+            throw new NotSupportedException(
+                "The Dither() method was called on a class which does not support that method.");
+        }
+
+        public override void ConnectEquipment(string profileName)
+        {
+            guider.ConnectEquipment(profileName);
+           
+        }
+
+        public override void GetStatus(out string appState, out double avgDist)
+        {
+            throw new NotSupportedException(
+                "The GetStatus() method was called on a class which does not support that method.");
+        }
+
+        public override string SaveImage()
+        {
+            throw new NotSupportedException(
+                "The SaveImage() method was called on a class which does not support that method.");
+        }
+
+        public override double PixelScale()
+        {
+            throw new NotSupportedException(
+                "The PixelScale() method was called on a class which does not support that method.");
+        }
+
+        public override void DisconnectEquipment()
+        {
+            throw new NotSupportedException(
+                "The DisconnectEquipment() method was called on a class which does not support that method.");
+        }
+
+        public override bool IsSettling()
+        {
+            throw new NotSupportedException(
+                "The IsSettling() method was called on a class which does not support that method.");
+        }
+
+        //public override bool IsConnected()
+        //{
+       //     return guider.IsConnected();
+            //throw new NotSupportedException(
+               // "The IsSettling() method was called on a class which does not support that method.");
+       // }
+
+        public override void Pause()
+        {
+            throw new NotSupportedException(
+                "The Pause() method was called on a class which does not support that method.");
+        }
+
+        public override GuideStats GetStats()
+        {
+            throw new NotSupportedException(
+                "The GetStats() method was called on a class which does not support that method.");
+        }
+
+        public override void Loop(uint timeoutSeconds)
+        {
+            throw new NotSupportedException(
+                "The Loop() method was called on a class which does not support that method.");
+        }
+
+        public override void Guide(double settlePixels, double settleTime, double settleTimeout, bool forceCalibration)
+        {
+            
+            guider.Guide(settlePixels, settleTime, settleTimeout, forceCalibration);
+        }
+
+        public override void Connect()
+        {
+            guider.Connect();
+            //throw new NotSupportedException(
+            //    "The Connect() method was called on a class which does not support that method.");
+            
+        }
+
+    }
+    
     public class clsPhd
     {
         private TcpClient oClient;

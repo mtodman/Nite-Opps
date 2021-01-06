@@ -99,6 +99,7 @@
             this.GroupBox4 = new System.Windows.Forms.GroupBox();
             this.chkDome = new System.Windows.Forms.CheckBox();
             this.btnDome = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.chkPHD = new System.Windows.Forms.CheckBox();
             this.btnPHD = new System.Windows.Forms.Button();
             this.chkFocuser = new System.Windows.Forms.CheckBox();
@@ -121,13 +122,13 @@
             this.btnSolve = new System.Windows.Forms.Button();
             this.btnStopImagingRun = new System.Windows.Forms.Button();
             this.btnSlewAndSolve = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnSyncWithSolve = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblGuidingStatus = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.btnGuide = new System.Windows.Forms.Button();
             this.grpGeneral.SuspendLayout();
             this.groupBox16.SuspendLayout();
             this.GroupBox1.SuspendLayout();
@@ -876,6 +877,16 @@
             this.btnDome.Text = "Dome Disconnected";
             this.btnDome.UseVisualStyleBackColor = false;
             // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(310, 234);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 148;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // chkPHD
             // 
             this.chkPHD.AutoSize = true;
@@ -1102,18 +1113,9 @@
             this.btnSlewAndSolve.UseVisualStyleBackColor = true;
             this.btnSlewAndSolve.Click += new System.EventHandler(this.btnSlewAndSolve_Click);
             // 
-            // btnExit
-            // 
-            this.btnExit.Location = new System.Drawing.Point(310, 234);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 148;
-            this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
             // groupBox17
             // 
+            this.groupBox17.Controls.Add(this.btnGuide);
             this.groupBox17.Controls.Add(this.btnSlewAndSolve);
             this.groupBox17.Controls.Add(this.btnSyncWithSolve);
             this.groupBox17.Controls.Add(this.btnStopImagingRun);
@@ -1126,11 +1128,6 @@
             this.groupBox17.TabStop = false;
             this.groupBox17.Text = "Imaging Control";
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
-            // 
             // btnSyncWithSolve
             // 
             this.btnSyncWithSolve.Location = new System.Drawing.Point(132, 79);
@@ -1140,6 +1137,11 @@
             this.btnSyncWithSolve.Text = "Sync Mount with Solved Position";
             this.btnSyncWithSolve.UseVisualStyleBackColor = true;
             this.btnSyncWithSolve.Click += new System.EventHandler(this.btnSyncWithSolve_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
             // groupBox2
             // 
@@ -1169,6 +1171,16 @@
             this.label22.Size = new System.Drawing.Size(79, 13);
             this.label22.TabIndex = 0;
             this.label22.Text = "Guiding Status:";
+            // 
+            // btnGuide
+            // 
+            this.btnGuide.Location = new System.Drawing.Point(132, 151);
+            this.btnGuide.Name = "btnGuide";
+            this.btnGuide.Size = new System.Drawing.Size(75, 42);
+            this.btnGuide.TabIndex = 151;
+            this.btnGuide.Text = "Start Guiding";
+            this.btnGuide.UseVisualStyleBackColor = true;
+            this.btnGuide.Click += new System.EventHandler(this.btnGuide_Click);
             // 
             // frmMain
             // 
@@ -1312,5 +1324,6 @@
         internal System.Windows.Forms.Label lblALT;
         internal System.Windows.Forms.Label label28;
         internal System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Button btnGuide;
     }
 }
